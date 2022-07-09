@@ -1,0 +1,9 @@
+main: me.moty.fw.FactoryWorker
+name: ${project.name}
+version: ${project.version}
+api-version: 1.13
+author: xMoTy
+commands:
+  factoryworker:
+    description: Main Command
+    aliases: [fw]
