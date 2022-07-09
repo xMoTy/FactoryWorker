@@ -224,7 +224,7 @@ public class FactoryWorker extends JavaPlugin {
 				bossbar.setProgress(progress);
 				if (!notify.contains(p.getUniqueId()) && !bossbar.getPlayers().contains(p))
 					bossbar.addPlayer(p);
-				if (!bossBar.containsKey(name))
+				if (!	bossBar.containsKey(name))
 					bossBar.put(name, bossbar);
 			});
 		}, 20, 20);
