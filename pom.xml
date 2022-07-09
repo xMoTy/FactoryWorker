@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.moty</groupId>
 	<artifactId>factoryworker</artifactId>
-	<version>1.8</version>
+	<version>1.7</version>
 	<name>FactoryWorker</name>
 
 	<dependencies>
