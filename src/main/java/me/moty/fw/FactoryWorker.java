@@ -11,7 +11,6 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bstats.bukkit.Metrics;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.boss.BarColor;
@@ -24,6 +23,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
 
 public class FactoryWorker extends JavaPlugin {
 
@@ -224,7 +225,7 @@ public class FactoryWorker extends JavaPlugin {
 				bossbar.setProgress(progress);
 				if (!notify.contains(p.getUniqueId()) && !bossbar.getPlayers().contains(p))
 					bossbar.addPlayer(p);
-				if (!	bossBar.containsKey(name))
+				if (!bossBar.containsKey(name))
 					bossBar.put(name, bossbar);
 			});
 		}, 20, 20);

@@ -100,6 +100,8 @@ public class FWCommand implements CommandExecutor {
 		} else if (args[0].equalsIgnoreCase("create")) {
 			if (!sender.isOp())
 				return false;
+			if (args.length < 5)
+				return false;
 			if (m.getFactory(args[1]) != null) {
 				sender.sendMessage(m.colorize(m.getMessage().name_exists));
 				return false;
@@ -181,6 +183,8 @@ public class FWCommand implements CommandExecutor {
 		} else if (args[0].equalsIgnoreCase("rename")) {
 			if (!sender.isOp())
 				return false;
+			if (args.length < 3)
+				return true;
 			if (m.getFactory(args[1]) == null) {
 				sender.sendMessage(m.colorize(m.getMessage().name_doesNotExists));
 				return true;
@@ -197,6 +201,8 @@ public class FWCommand implements CommandExecutor {
 			}
 		} else if (args[0].equalsIgnoreCase("modify")) {
 			if (!sender.isOp())
+				return false;
+			if (args.length < 5)
 				return false;
 			if (m.getFactory(args[1]) == null) {
 				sender.sendMessage(m.colorize(m.getMessage().name_doesNotExists));
@@ -223,6 +229,8 @@ public class FWCommand implements CommandExecutor {
 				|| args[0].equalsIgnoreCase("rev") || args[0].equalsIgnoreCase("remove")) {
 			if (!sender.isOp())
 				return false;
+			if (args.length < 2)
+				return false;
 			if (m.getFactory(args[1]) == null) {
 				sender.sendMessage(m.colorize(m.getMessage().name_doesNotExists));
 				return true;
@@ -247,6 +255,8 @@ public class FWCommand implements CommandExecutor {
 			if (!sender.isOp())
 				return false;
 			if (!(sender instanceof Player))
+				return false;
+			if (args.length < 2)
 				return false;
 			if (m.getFactory(args[1]) == null) {
 				sender.sendMessage(m.colorize(m.getMessage().name_doesNotExists));
