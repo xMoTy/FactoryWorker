@@ -225,6 +225,9 @@ public class FWCommand implements CommandExecutor {
 						.replace("%newPeriod%", String.valueOf(period)).replace("%newItem%", newName)
 						.replace("%newAmount%", String.valueOf(count))));
 			}
+			fac.setCount(count);
+			fac.setPeriod(period);
+			fac.setItem(item);
 		} else if (args[0].equalsIgnoreCase("del") || args[0].equalsIgnoreCase("delete")
 				|| args[0].equalsIgnoreCase("rev") || args[0].equalsIgnoreCase("remove")) {
 			if (!sender.isOp())
@@ -280,10 +283,10 @@ public class FWCommand implements CommandExecutor {
 		} else if (args[0].equalsIgnoreCase("report")) {
 			if (m.notify.contains(p.getUniqueId())) {
 				m.notify.remove(p.getUniqueId());
-				sender.sendMessage(m.colorize(m.getMessage().turnOff_Notification));
+				sender.sendMessage(m.colorize(m.getMessage().turnOn_Notification));
 			} else {
 				m.notify.add(p.getUniqueId());
-				sender.sendMessage(m.colorize(m.getMessage().turnOn_Notification));
+				sender.sendMessage(m.colorize(m.getMessage().turnOff_Notification));
 			}
 		} else if (args[0].equalsIgnoreCase("reload") && sender.isOp()) {
 			m.reloadConfiguration();

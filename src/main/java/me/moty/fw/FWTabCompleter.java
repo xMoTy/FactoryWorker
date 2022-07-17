@@ -20,6 +20,8 @@ public class FWTabCompleter implements TabCompleter {
 		if (!sender.isOp())
 			if (args.length == 1)
 				return Arrays.asList("report");
+			else
+				return null;
 		if (args.length == 1)
 			return Arrays.asList("list", "create", "show", "info", "rename", "modify", "remove", "tp");
 		if (args.length == 2) {

@@ -131,7 +131,7 @@ public class FactoryWorker extends JavaPlugin {
 					fac.getItem().hasItemMeta() ? fac.getItem() : fac.getItem().getType().name());
 		});
 		if (!notify.isEmpty())
-			config.set("report", notify.stream().toList());
+			config.set("report", notify.stream().map(uuid -> uuid.toString()).toList());
 
 		try {
 			config.save(cfile);
