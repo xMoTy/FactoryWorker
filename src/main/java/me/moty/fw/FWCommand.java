@@ -35,7 +35,7 @@ public class FWCommand implements CommandExecutor {
 				sender.sendMessage(m.colorize(s));
 			return true;
 		} else if (args[0].equalsIgnoreCase("list")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			int fws = m.getFactories().size();
 			int nowPage = args.length < 2 ? 1 : Integer.parseInt(args[1]);
@@ -98,7 +98,7 @@ public class FWCommand implements CommandExecutor {
 			sender.spigot().sendMessage(tc);
 			return true;
 		} else if (args[0].equalsIgnoreCase("create")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			if (args.length < 5)
 				return false;
@@ -181,7 +181,7 @@ public class FWCommand implements CommandExecutor {
 				return true;
 			}
 		} else if (args[0].equalsIgnoreCase("rename")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			if (args.length < 3)
 				return true;
@@ -200,7 +200,7 @@ public class FWCommand implements CommandExecutor {
 				m.bossBar.remove(args[1]);
 			}
 		} else if (args[0].equalsIgnoreCase("modify")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			if (args.length < 5)
 				return false;
@@ -230,7 +230,7 @@ public class FWCommand implements CommandExecutor {
 			fac.setItem(item);
 		} else if (args[0].equalsIgnoreCase("del") || args[0].equalsIgnoreCase("delete")
 				|| args[0].equalsIgnoreCase("rev") || args[0].equalsIgnoreCase("remove")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			if (args.length < 2)
 				return false;
@@ -255,7 +255,7 @@ public class FWCommand implements CommandExecutor {
 				}, 20 * 5);
 			}
 		} else if (args[0].equalsIgnoreCase("tp")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			if (!(sender instanceof Player))
 				return false;
@@ -268,7 +268,7 @@ public class FWCommand implements CommandExecutor {
 			FWFactory fac = m.getFactory(args[1]);
 			p.teleport(fac.getLocation());
 		} else if (args[0].equalsIgnoreCase("confirm")) {
-			if (!sender.isOp())
+			if (!sender.hasPermission("fw.admin"))
 				return false;
 			if (!this.delete.containsKey(sender.getName()))
 				return false;
@@ -288,7 +288,7 @@ public class FWCommand implements CommandExecutor {
 				m.notify.add(p.getUniqueId());
 				sender.sendMessage(m.colorize(m.getMessage().turnOff_Notification));
 			}
-		} else if (args[0].equalsIgnoreCase("reload") && sender.isOp()) {
+		} else if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("fw.admin")) {
 			m.reloadConfiguration();
 			m.getMessage().reloadMessages();
 			sender.sendMessage(m.colorize("&aReloaded Successfully!"));
